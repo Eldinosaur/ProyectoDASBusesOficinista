@@ -36,9 +36,7 @@
                     $id_socio = $val[$i]['id_socio'];
                     $estado = $val[$i]['estado'];
                     ?>
-                    <tr><td>
-                            <?php echo $id_bus; ?>
-                        </td>
+                    <tr>
                         <td>
                             <?php echo $placa_bus; ?>
                         </td>
