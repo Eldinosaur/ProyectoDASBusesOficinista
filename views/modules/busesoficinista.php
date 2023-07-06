@@ -1,5 +1,5 @@
 <div style="padding-left: 30px; padding-right: 30px; padding-top: 15px;">
-    <a class="nav-link active; navTemplate" href="redireccionoficinista.php?action=newbus">
+    <a class="nav-link active; navTemplate" title="Agregar Bus" href="redireccionoficinista.php?action=newbus">
         Nuevo Bus
         <img src="img/plus.png" class="icons">
     </a>
@@ -12,7 +12,8 @@
                 <th scope="col">Carroceria</th>
                 <th scope="col">Cant. Asientos</th>
                 <th scope="col">Estado</th>
-                <th scope="col">Acciones</th>
+                <th colspan="3">Acciones</th>
+
             </tr>
         </thead>
         <tbody>
@@ -56,10 +57,25 @@
                                 echo 'Inactivo';
                             } ?>
                         </td>
-                        <td><a class="nav-link active; navTemplate"
-                                href="redireccionoficinista.php?action=updatebus&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus;?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>">
-                                <img src="img/editar.png" class="icons">
-                            </a></td>
+                        <td><a class="nav-link active; navTemplate" title="Editar info bus"
+                                href="redireccionoficinista.php?action=updatebus&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus; ?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>">
+                                <img src="img/edit.png" class="icons">
+                            </a>
+                        </td>
+                        <td>                       
+                            <a class="nav-link active; navTemplate"
+                             href="redireccionoficinista.php?action=tripsform&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus; ?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>" 
+                             title="Asignar viaje">
+                            <img src="img/plus.png" class="icons">
+                            </a>                        
+                            </td>
+                        <td>
+                            <a class="nav-link active; navTemplate"
+                             href="redireccionoficinista.php?action=trips&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus; ?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>" 
+                             title="Viajes Asignados">
+                            <img src="img/details.png" class="icons">
+                            </a>                        
+                        </td>
                     </tr>
                     <?php
                 }

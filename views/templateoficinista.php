@@ -21,7 +21,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark;">
             <div class="container-fluid" style="display:flex;">
-            <a class="navbar-brand" href="redireccionoficinista.php?action=home">
+            <a class="navbar-brand" title="Inicio" href="redireccionoficinista.php?action=home">
                     <img src="img/safey.jpg" class="avatar"> </a>
                     <ul class="navbar-nav">
                     <li class="nav-item"></li>
@@ -53,9 +53,9 @@
                     <ul class="navbar-nav">
                     <li class="nav-item"></li>
                     </ul>
-                    <a class="navbar-brand" href="redireccionoficinista.php?action=userprofile" style="justify-content:right">
+                    <a class="navbar-brand" title="Perfil" href="redireccionoficinista.php?action=userprofile" style="justify-content:right">
                     <img src="img/avatar.png" class="avatar"> </a>
-                <button type="button" class="btn btn-danger; buttonStyle" id="btnLogout">Cerrar Sesión</button>
+                <button type="button" title="Cerrar Sesión" class="btn btn-danger; buttonStyle" id="btnLogout">Cerrar Sesión</button>
             </div>
         </nav>
     </div>
@@ -64,17 +64,17 @@
             <div class="container-fluid">                
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active; navTemplate" href="redireccionoficinista.php?action=buses">Buses</a>
+                        <a class="nav-link active; navTemplate" title="Buses" href="redireccionoficinista.php?action=buses">Buses</a>
                     </li>                
                     <li class="nav-item">
-                        <a class="nav-link active; navTemplate"
+                        <a class="nav-link active; navTemplate" title="Frecuencias"
                             href="redireccionoficinista.php?action=frequencies">Frecuencias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active; navTemplate" href="redireccionoficinista.php?action=sales">Ventas</a>
+                        <a class="nav-link active; navTemplate" title="Ventas" href="redireccionoficinista.php?action=sales">Ventas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active; navTemplate" href="redireccionoficinista.php?action=validation">Validacion Ventas Online</a>
+                        <a class="nav-link active; navTemplate" title="Validaciones" href="redireccionoficinista.php?action=validation">Validacion Ventas Online</a>
                     </li>
                 </ul>
                 
