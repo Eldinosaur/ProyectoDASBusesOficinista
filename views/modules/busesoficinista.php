@@ -61,7 +61,9 @@
                                 href="redireccionoficinista.php?action=updatebus&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus; ?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>">
                                 <img src="img/edit.png" class="icons">
                             </a>
-                        </td>
+                        </td><?php
+                       if ($estado == 1) {
+                        echo '
                         <td>                       
                             <a class="nav-link active; navTemplate"
                              href="redireccionoficinista.php?action=tripsform&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus; ?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>" 
@@ -76,6 +78,7 @@
                             <img src="img/details.png" class="icons">
                             </a>                        
                         </td>
+                        ';} else { echo '<td></td><td></td>';}?>
                     </tr>
                     <?php
                 }
