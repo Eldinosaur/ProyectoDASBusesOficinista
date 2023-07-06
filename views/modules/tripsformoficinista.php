@@ -1,12 +1,15 @@
 <?php
-$id_frecuencia = $_GET['id_frecuencia'];
-$origen_frcuencia = $_GET['origen_frecuencia'];
-$destino_frecuencia = $_GET['destino_frecuencia'];
-$duracion_frecuencia = $_GET['duracion_frecuencia'];
-$tipo_frecuencia = $_GET['tipo_frecuencia'];
-$costo_frecuencia = $_GET['costo_frecuencia'];
-$estado_frecuencia = $_GET['estado_frecuencia'];
+$id_bus = $_GET['id_bus'];
+$numero_bus = $_GET['numero_bus'];
+$placa_bus = $_GET['placa_bus'];
+$chasis_bus = $_GET['chasis_bus'];
+$carroceria_bus = $_GET['carroceria_bus'];
+$cantidad_asientos = $_GET['cantidad_asientos'];
+$fotografia = $_GET['fotografia'];
+$id_socio = $_GET['id_socio'];
+$estado = $_GET['estado'];
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,33 +19,80 @@ $estado_frecuencia = $_GET['estado_frecuencia'];
 
 <body class="bodyBack">
     <div class="divFormulario">
-        <form class="formularioLogin" method="POST">
-            <div class="divTituloLogin">
-                <h4>Actualizacion estado de frecuencia</h4>
-            </div>
-            <input type="text" class="form-control" name="id_bus" id="id_bus" value="<?php echo $id_bus ?>" hidden>
-            <div class="mb-3">
-                <label for="numero_bus" class="form-label" style="font-weight:bold;">Numero Bus</label>
-                <input type="text" class="form-control" name="numero_bus" id="numero_bus" placeholder="Numero Bus"
-                    value="<?php echo $numero_bus ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="estado" class="form-label" style="font-weight:bold;">Estado</label>
-                <select class="form-control" name="estado" id="estado">
-                    <option value="1" <?php if ($estado == 1)
-                        echo 'selected' ?>>Activo</option>
-                        <option value="0" <?php if ($estado == 0)
-                        echo 'selected' ?>>Inactivo</option>
-                    </select>
-                </div>
+        <div class="divTituloLogin">
+            <h4>Asignacion Viaje</h4>
+        </div>
+        <div>
+            <h5>Detalles del bus</h5>
+        </div>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Numero Bus</th>
+                        <th scope="col">Numero de Placa</th>
+                        <th scope="col">Chasis</th>
+                        <th scope="col">Carroceria</th>
+                        <th scope="col">Cant. Asientos</th>
+                        <th scope="col">Estado</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <?php echo $numero_bus; ?>
+                        </td>
+                        <td>
+                            <?php echo $placa_bus; ?>
+                        </td>
+                        <td>
+                            <?php echo $chasis_bus ?>
+                        </td>
+                        <td>
+                            <?php echo $carroceria_bus ?>
+                        </td>
+                        <td>
+                            <?php echo $cantidad_asientos ?>
+                        </td>
+                        <td>
+                            <?php if ($estado == 1) {
+                                echo 'Activo';
+                            } ?>
+                        </td>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <form id="trip" method="POST">
                 <div>
-                    <button type="submit" class="btn btn-primary" id="envio" name="envio">
-                        <a href="redireccionoficinista.php?action=frequencies">Registrar
-</a>
-                        </button>
-                    <button type="button" class="btn btn-danger"><a
-                            href="redireccionoficinista.php?action=frequencies">Cancelar</a></button>
+                    <h4>Datos del Viaje</h4>
+                </div>
+                <input type="text" class="form-control" name="id_bus_viaje" id="id_bus_viaje"
+                    value="<?php echo $id_bus ?>" hidden>
+                <div class="mb-3">
+                    <label for="fecha_viaje" class="form-label" style="font-weight:bold;">Fecha Viaje</label>
+                    <input type="date" class="form-control" name="fecha_viaje" id="fecha_viaje" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora_salida_viaje" class="form-label" style="font-weight:bold;">Hora de Salida</label>
+                    <input type="time" class="form-control" name="hora_salida_viaje" id="hora_salida_viaje" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora_llegada_viaje" class="form-label" style="font-weight:bold;">Hora Estimada de llegada</label>
+                    <input type="time" class="form-control" name="hora_llegada_viaje" id="hora_llegada_viaje" required>
                 </div>
             </form>
         </div>
-    </body>
+
+        <div>
+            <button type="submit" class="btn btn-primary" id="envio" name="envio">
+                <a href="redireccionoficinista.php?action=buses">Registrar
+                </a>
+            </button>
+            <button type="button" class="btn btn-danger"><a
+                    href="redireccionoficinista.php?action=buses">Cancelar</a></button>
+        </div>
+        </form>
+    </div>
+</body>
