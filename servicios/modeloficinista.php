@@ -14,7 +14,9 @@ class EnlacesPaginas
             $enlacesModel == "newpassword" ||
             $enlacesModel == "userform" ||
             $enlacesModel == "updatebus" ||
-            $enlacesModel == "updatefrequency"){
+            $enlacesModel == "updatefrequency" ||
+            $enlacesModel == "trips" ||
+            $enlacesModel == "tripsform"){
                 $module = "views/modules/".$enlacesModel."oficinista.php";
             }else{
             $module = "views/modules/home.php";
