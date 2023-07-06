@@ -1,5 +1,6 @@
 <div style="padding-left: 30px; padding-right: 30px; padding-top: 15px;">
-    <a class="nav-link active; navTemplate" title="Agregar Bus" href="redireccionoficinista.php?action=newbus">
+    <a class="nav-link active; navTemplate" title="Agregar Bus" 
+    href="redireccionoficinista.php?action=newbus">
         Nuevo Bus
         <img src="img/plus.png" class="icons">
     </a>
@@ -42,13 +43,13 @@
                             <?php echo $placa_bus; ?>
                         </td>
                         <td>
-                            <?php echo $chasis_bus ?>
+                            <?php echo $chasis_bus; ?>
                         </td>
                         <td>
-                            <?php echo $carroceria_bus ?>
+                            <?php echo $carroceria_bus; ?>
                         </td>
                         <td>
-                            <?php echo $cantidad_asientos ?>
+                            <?php echo $cantidad_asientos; ?>
                         </td>
                         <td>
                             <?php if ($estado == 1) {
@@ -63,7 +64,7 @@
                             </a>
                         </td><?php
                        if ($estado == 1) {
-                        echo '?>
+                        echo '
                         <td>                       
                             <a class="nav-link active; navTemplate"
                              href="redireccionoficinista.php?action=tripsform&id_bus='.$id_bus.'&numero_bus='.$numero_bus.'&placa_bus='.$placa_bus.'&chasis_bus='.$chasis_bus.'&carroceria_bus='.$carroceria_bus.'&cantidad_asientos='.$cantidad_asientos.'&fotografia='.$fotografia.'&id_socio='.$id_socio.'&estado='.$estado.'" 
@@ -78,7 +79,7 @@
                             <img src="img/details.png" class="icons">
                             </a>                        
                         </td>
-                        <?php ';} else { echo '<td></td><td></td>';}?>
+                        ';} else { echo '<td></td><td></td>';}?>
                     </tr>
                     <?php
                 }
