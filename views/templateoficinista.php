@@ -83,6 +83,12 @@
         </nav>
     </div>
     <section>
+    <h1>Bienvenido a la página de la cooperativa 
+        <?php echo $_SESSION['id_coop'];?>
+    </h1>
+    <h1>Bienvenido usuario  
+        <?php echo $_SESSION['id_usuario'];?>
+    </h1>
         <?php
         $mvc = new MvcController();
         $mvc->enlacesPaginasControllerOficinista();
