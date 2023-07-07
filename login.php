@@ -88,8 +88,9 @@ if(isset($_POST['envio'])){
             if (response.id_usuario) {
                 // Si la respuesta contiene un ID de usuario, significa que el inicio de sesión fue exitoso
                 if (response.tipo_usuario == "oficinista") {
+
                     // Redirige a la página deseada pasando el id_usuario como parámetro en la URL
-                    window.location.href = "redireccionoficinista.php?id_usuario=" + response.id_usuario + "&id_coop=" + response.id_coop;
+                    window.location.href = "okLogin.php?id_usuario=" + response.id_usuario + "&id_coop=" + response.id_coop;
                 } else {
                     alert("Error en la autenticación");
                 }
