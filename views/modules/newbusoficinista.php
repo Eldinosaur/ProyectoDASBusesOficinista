@@ -1,42 +1,13 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#newBus').submit(function(e) {
-      e.preventDefault(); // Prevent the default form submission
-
-      // Retrieve form data
-      var formData = $(this).serialize();
-
-
-      // Send the form data using AJAX
-      $.ajax({
-        type: 'POST',
-        url: "https://nilotic-quart.000webhostapp.com/agregarBus.php",
-        data: formData,
-        success: function(response) {
-          console.log(response);
-        },
-        error: function(xhr, status, error) {
-          // Handle the error case
-          console.log(xhr.responseText); // Example: Log the error response to the browser console
-        }
-      });
-    });
-  });
-</script>
-<script>
-    function redirectToBuses(){
-    window.location.href = 'redireccionoficinista.php?action=buses';
-  }
-</script>
-
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 
 <body class="bodyBack">
   <div class="divFormulario">
@@ -59,22 +30,21 @@
       </div>
       <div class="mb-3">
         <label for="carroceria_bus" class="form-label" style="font-weight:bold;">Carroceria</label>
-        <input type="text" class="form-control" name="carroceria_bus" id="carroceria_bus" placeholder="Carroceria"
-          required>
+        <input type="text" class="form-control" name="carroceria_bus" id="carroceria_bus" placeholder="Carroceria" required>
       </div>
       <div class="mb-3">
         <label for="cantidad_asientos" class="form-label" style="font-weight:bold;">Numero de asientos</label>
-        <input type="number" min="30" class="form-control" value="30" name="cantidad_asientos" id="cantidad_asientos"
-          required>
+        <input type="number" min="30" class="form-control" value="30" name="cantidad_asientos" id="cantidad_asientos" required>
       </div>
       <div class="mb-3">
         <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>
         <input type="text" class="form-control" name="id_socio" id="id_socio" placeholder="Socio" required>
       </div>
       <div class="mb-3">
-        <label for="fotografia" class="form-label" style="font-weight:bold;">Fotografia</label>
-        <input type="text" class="form-control" name="fotografia" id="fotografia" placeholder="Fotografia" required>
+        <label for="fotografia" class="form-label" style="font-weight:bold;">Fotografía</label>
+        <input type="file" class="form-control" name="fotografia" id="fotografia" accept="image/*" required>
       </div>
+
       <div class="mb-3">
         <label for="estado" class="form-label" style="font-weight:bold;">Estado</label>
         <select class="form-control" name="estado" id="estado">
@@ -86,8 +56,7 @@
         <label for="frecuencia" class="form-label" style="font-weight:bold;">Frecuencia</label>
         <div class="col-sm-8">
           <div class="input-group">
-            <span class="form-control form-control-sm"
-              style="background-color: #fff; border: none; height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;">
+            <span class="form-control form-control-sm" style="background-color: #fff; border: none; height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;">
               Asignar Frecuencia
             </span>
             <div class="input-group-append">
@@ -100,12 +69,10 @@
       </div>
       <div>
         <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()" name="envio">Registrar</button>
-        <button type="button" class="btn btn-danger"><a
-            href="redireccionoficinista.php?action=buses">Cancelar</a></button>
+        <button type="button" class="btn btn-danger"><a href="redireccionoficinista.php?action=buses">Cancelar</a></button>
       </div>
     </form>
   </div>
-
 
   <div class="modal fade" id="frequencyModal" tabindex="-1" aria-labelledby="frequencyModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -159,4 +126,59 @@
     </div>
   </div>
 
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAZa0vsgcykehIk-x1Fh_VLShy5oHesm94",
+      storageBucket: "gs://facturamovil-cd677.appspot.com"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    $(document).ready(function() {
+      $('#newBus').submit(function(e) {
+        e.preventDefault(); 
+
+        var imageFile = document.getElementById('fotografia').files[0];
+        var storageRef = firebase.storage().ref();
+        var timestamp = Date.now();
+        var imageName = timestamp + '-' + imageFile.name;
+        var imageRef = storageRef.child(imageName);
+        var formData = new FormData(this);
+
+        imageRef
+          .put(imageFile)
+          .then(function(snapshot) {
+            console.log('Imagen subida con éxito.');
+            return imageRef.getDownloadURL();
+          })
+          .then(function(url) {
+            console.log('URL de descarga:', url);
+            formData.append('fotografia', url);
+            $.ajax({
+              type: 'POST',
+              url: 'https://nilotic-quart.000webhostapp.com/agregarBus.php',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+                console.log(response);
+              },
+              error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+              }
+            });
+          })
+          .catch(function(error) {
+            console.log('Error al subir la imagen:', error);
+          });
+      });
+    });
+
+
+    function redirectToBuses() {
+      setTimeout(function() {
+        window.location.href = 'redireccionoficinista.php?action=buses';
+      }, 4000); 
+    }
+  </script>
 </body>
