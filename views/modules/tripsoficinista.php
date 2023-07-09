@@ -78,43 +78,8 @@ $estado = $_GET['estado'];
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                $url = 'https://nilotic-quart.000webhostapp.com/listarViajesDiarios.php';
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                $json = curl_exec($ch);
-                if ($json != null) {
-                    $obj = json_decode($json);
-                    $val = json_decode(json_encode($obj), true);
-
-                    for ($i = 0; $i < sizeof($val); $i++) {
-                        $id_viaje = $val[$i]['id_viaje'];
-                        $id_asignacion_pertenece =$val[$i]['id_asignacion_pertenece'];
-                        $id_bus_viaje=$val[$i]['id_bus_viaje'];
-                        $fecha_viaje = $val[$i]['fecha_viaje'];
-                        $hora_salida_viaje = $val[$i]['hora_salida_viaje'];
-                        $hora_llegada_viaje = $val[$i]['hora_llegada_viaje'];
-                        $origen = $val[$i]['origen'];
-                        $destino = $val[$i]['destino'];
-                        if($id_bus_viaje == $id_bus){
-                        ?>
-                    <tr>
-                        <td>
-                            <?php echo $fecha_viaje; ?>
-                        </td>
-                        <td>
-                            <?php echo $hora_salida_viaje; ?>
-                        </td>
-                        <td>
-                            <?php echo $hora_llegada_viaje; ?>
-                        </td>
-                        <td>
-                            <?php echo $origen; ?>
-                        </td>
-                        <td>
-                            <?php echo $destino; ?>
-                        </td>
-                        <?php }}}?>
+                
+                    
                 </tbody>
             </table>
         </div>
