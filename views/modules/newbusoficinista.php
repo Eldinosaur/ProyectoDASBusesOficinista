@@ -40,7 +40,7 @@
       <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>
       <select class="form-control" name="id_socio" id="id_socio">
               <?php
-              $url = 'https://nilotic-quart.000webhostapp.com/listarSociosCooperativa.php?id_cooperativa=2';// . $_SESSION['id_coop'];
+              $url = 'https://nilotic-quart.000webhostapp.com/listarSociosCooperativa.php?id_cooperativa='. $_SESSION['id_coop'];
               $ch = curl_init($url);
               curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
               $json = curl_exec($ch);

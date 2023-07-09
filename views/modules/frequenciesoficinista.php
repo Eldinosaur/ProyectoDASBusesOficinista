@@ -22,8 +22,8 @@
 
                 for ($i = 0; $i < sizeof($val); $i++) {
                     $id_frecuencia = $val[$i]['id_frecuencia'];
-                    $origen_frcuencia = $val[$i]['origen_frecuencia'];
-                    $destino_frecuencia = $val[$i]['destino_frecuencia'];
+                    $origen_frcuencia = $val[$i]['origen'];
+                    $destino_frecuencia = $val[$i]['destino'];
                     $duracion_frecuencia = $val[$i]['duracion_frecuencia'];
                     $tipo_frecuencia = $val[$i]['tipo_frecuencia'];
                     $costo_frecuencia = $val[$i]['costo_frecuencia'];
