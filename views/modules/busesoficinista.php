@@ -106,7 +106,7 @@
             <tr>
                 <td colspan="7">
                     <center>
-                        <?php echo $val; ?>
+                        No Existen Buses Registrados
                     </center>
                 </td>
             </tr>
