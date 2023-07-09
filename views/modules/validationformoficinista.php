@@ -98,7 +98,7 @@ $fecha_viaje = $_POST['fecha_viaje'];
                 <h5>Comprobante</h5>
                 <img src="<?php if(filter_var($comprobante_venta, FILTER_VALIDATE_URL)){echo $comprobante_venta;}?>" alt="No Existe Comprobante Registrado" style="height:250px;">
             </div>
-<input type="text" name="id_venta" id="id_venta" value="<?php echo $id_venta?>">
+<input type="text" name="id_venta" id="id_venta" value="<?php echo $id_venta?>" hidden>
             <div class="mb-3">
                     <label for="estado_venta" class="form-label" style="font-weight:bold;">Estado</label>
                     <select class="form-control" name="estado_venta" id="estado_venta">
