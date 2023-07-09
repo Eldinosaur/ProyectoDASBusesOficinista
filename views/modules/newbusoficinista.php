@@ -37,9 +37,30 @@
         <input type="number" min="30" class="form-control" value="30" name="cantidad_asientos" id="cantidad_asientos" required>
       </div>
       <div class="mb-3">
-        <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>
-        <input type="text" class="form-control" name="id_socio" id="id_socio" placeholder="Socio" required>
-      </div>
+      <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>
+      <select class="form-control" name="id_socio" id="id_socio">
+              <?php
+              $url = 'https://nilotic-quart.000webhostapp.com/listarSociosCooperativa.php?id_cooperativa=2';// . $_SESSION['id_coop'];
+              $ch = curl_init($url);
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+              $json = curl_exec($ch);
+              if ($json != null) {
+                  $obj = json_decode($json);
+                  $val = json_decode(json_encode($obj), true);
+                  for ($i = 0; $i < sizeof($val); $i++) {
+                    $id_socio_datos = $val[$i]['id_usuario'];
+                    $cedula_socio = $val[$i]['cedula_usuario'];
+                    $nombre_socio = $val[$i]['nombre_usuario'];
+                    $apellido_socio = $val[$i]['apellido_usuario'];
+                  
+              ?>
+                
+                
+                        <option value="<?php echo $id_socio_datos?>"><?php echo "Cedula: ".$cedula_socio." Nombre: ".$nombre_socio." ".$apellido_socio;?></option>
+                    
+                    <?php }}?>
+                    </select>
+            </div>
       <div class="mb-3">
         <label for="fotografia" class="form-label" style="font-weight:bold;">Fotografía</label>
         <input type="file" class="form-control" name="fotografia" id="fotografia" accept="image/*" required>

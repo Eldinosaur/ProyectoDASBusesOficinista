@@ -64,12 +64,23 @@
                                     echo 'Inactivo';
                                 } ?>
                             </td>
-                            <td><a class="nav-link active; navTemplate" title="Editar info bus"
-                                    href="redireccionoficinista.php?action=updatebus&id_bus=<?php echo $id_bus; ?>&numero_bus=<?php echo $numero_bus; ?>&placa_bus=<?php echo $placa_bus; ?>&chasis_bus=<?php echo $chasis_bus; ?>&carroceria_bus=<?php echo $carroceria_bus; ?>&cantidad_asientos=<?php echo $cantidad_asientos; ?>&fotografia=<?php echo $fotografia; ?>&id_socio=<?php echo $id_socio; ?>&estado=<?php echo $estado; ?>">
-                                    <img src="img/edit.png" class="icons">
-                                </a>
-                            </td>
                             <?php
+                            echo '<td>
+                            <form action="redireccionoficinista.php?action=updatebus" method="post">
+                            <input type="text" name="id_bus" value="'.$id_bus.'" hidden>
+                            <input type="text" name="numero_bus" value="'.$numero_bus.'" hidden>
+                            <input type="text" name="placa_bus" value="'.$placa_bus.'" hidden>
+                            <input type="text" name="chasis_bus" value="'.$chasis_bus.'" hidden>
+                            <input type="text" name="carroceria_bus" value="'.$carroceria_bus.'" hidden>
+                            <input type="text" name="cantidad_asientos" value="'.$cantidad_asientos.'" hidden>
+                            <input type="text" name="fotografia" value="'.$fotografia.'" hidden>
+                            <input type="text" name="id_socio" value="'.$id_socio.'" hidden>
+                            <input type="text" name="estado" value="'.$estado.'" hidden>
+                                <button type="submit" class="btn">                               
+                            <img src="img/edit.png" class="icons">
+                        </button>
+                            </form>
+                        </td>';
                             if ($estado == 1) {
                                 echo '
                         <td>                       

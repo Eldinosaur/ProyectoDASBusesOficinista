@@ -56,15 +56,17 @@
   </script>
 
 <?php
-$id_bus = $_GET['id_bus'];
-$numero_bus = $_GET['numero_bus'];
-$placa_bus = $_GET['placa_bus'];
-$chasis_bus = $_GET['chasis_bus'];
-$carroceria_bus = $_GET['carroceria_bus'];
-$cantidad_asientos = $_GET['cantidad_asientos'];
-$fotografia = $_GET['fotografia'];
-$id_socio = $_GET['id_socio'];
-$estado = $_GET['estado'];
+$id_bus = $_POST['id_bus'];
+$numero_bus = $_POST['numero_bus'];
+$placa_bus = $_POST['placa_bus'];
+$chasis_bus = $_POST['chasis_bus'];
+$carroceria_bus = $_POST['carroceria_bus'];
+$cantidad_asientos = $_POST['cantidad_asientos'];
+$fotografia = $_POST['fotografia'];
+$id_socio = $_POST['id_socio'];
+$estado = $_POST['estado'];
+
+
 ?>
 
 <head>
@@ -108,14 +110,33 @@ $estado = $_GET['estado'];
                     name="cantidad_asientos" id="cantidad_asientos" readonly>
             </div>
             <div class="mb-3">
-                <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>
-                <input type="text" class="form-control" name="id_socio" id="id_socio" value="<?php echo $id_socio ?>"
-                    readonly>
+            <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>
+                <select class="form-control" name="id_socio" id="id_socio" readonly>
+                        
+              <?php
+              $url = 'https://nilotic-quart.000webhostapp.com/listarSociosCooperativa.php?id_cooperativa=' . $_SESSION['id_coop'];
+              $ch = curl_init($url);
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+              $json = curl_exec($ch);
+              if ($json != null) {
+                  $obj = json_decode($json);
+                  $val = json_decode(json_encode($obj), true);
+                  for ($i = 0; $i < sizeof($val); $i++) {
+                    $id_socio_datos = $val[$i]['id_usuario'];
+                    $cedula_socio = $val[$i]['cedula_usuario'];
+                    $nombre_socio = $val[$i]['nombre_usuario'];
+                    $apellido_socio = $val[$i]['apellido_usuario'];
+                  
+              
+              ?>
+                <option value="<?php echo $id_socio_datos?>"<?php if($id_socio_datos == $id_socio){echo 'selected';} ?>><?php echo "Cedula: ".$cedula_socio." Nombre: ".$nombre_socio." ".$apellido_socio;?></option>
+                <?php }}?>
+                    </select>
             </div>
             <div class="mb-3">
         <label for="fotografia" class="form-label" style="font-weight:bold;">Fotografia</label>
         <img src="<?php echo $fotografia ?>" alt="Fotografía Bus" class="fotobus">
-        <input type="file" class="form-control" name="fotografia" id="fotografia" value="<?php echo $fotografia ?>"required>
+        <input type="file" class="form-control" name="fotografia" id="fotografia" value="<?php echo $fotografia ?>">
       </div>
             <div class="mb-3">
                 <label for="estado" class="form-label" style="font-weight:bold;">Estado</label>
