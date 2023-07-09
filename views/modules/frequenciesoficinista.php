@@ -40,7 +40,11 @@
                             <?php echo $destino_frecuencia; ?>
                         </td>
                         <td>
-                            <?php echo $tipo_frecuencia; ?>
+                        <?php if ($tipo_frecuencia == 1) {
+                                echo 'Con Paradas';
+                            } else {
+                                echo 'Sin Paradas';
+                            } ?>
                         </td>
                         <td>
                             <?php if ($estado_frecuencia == 1) {
