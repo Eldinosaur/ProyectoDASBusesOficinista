@@ -5,11 +5,11 @@
         <img src="img/plus.png" class="icons">
     </a>
     <br>
-    <h5>Bienvenido a la página de la cooperativa 
-        <?php echo $_SESSION['id_coop'];?>
+    <h5>Bienvenido a la página de la cooperativa
+        <?php echo $_SESSION['id_coop']; ?>
     </h5>
-    <h5>Bienvenido usuario  
-        <?php echo $_SESSION['id_usuario'];?>
+    <h5>Bienvenido usuario
+        <?php echo $_SESSION['id_usuario']; ?>
     </h5>
     <table class="table table-striped">
         <thead>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
             <?php
-            $url = 'https://nilotic-quart.000webhostapp.com/listarBuses.php';
+            $url = 'https://nilotic-quart.000webhostapp.com/listarBusesPorCooperativa.php?id_coop=' . $_SESSION['id_coop'];
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $json = curl_exec($ch);
