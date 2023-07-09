@@ -120,7 +120,9 @@ $estado = $_GET['estado'];
                                 if($estado_frecuencia == 1){
                                 ?>
                                 <option value="<?php echo $id_frecuencia_asignada; ?>"><?php echo 'Origen: ' . $origen_frecuencia . ' Destino: ' . $destino_frecuencia ?></option>
-                            <?php }
+                            <?php }else{
+                                echo "<option> No Existen frecuencias habilitadas</option>";
+                            }
                         } }?>
                     </select>
                 </div>
