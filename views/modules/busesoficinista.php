@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <?php
-            $url = 'https://nilotic-quart.000webhostapp.com/listarBuses.php?id_coop=' . $_SESSION['id_coop'];
+            $url = 'https://nilotic-quart.000webhostapp.com/listarBusesPorCooperativa.php?id_coop=' . $_SESSION['id_coop'];
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $json = curl_exec($ch);
