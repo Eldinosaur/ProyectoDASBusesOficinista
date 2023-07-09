@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <?php
-            $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuencias.php';
+            $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuenciaCooperativa.php?id_cooperativa_pertenece='.$_SESSION['id_coop'];
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $json = curl_exec($ch);
