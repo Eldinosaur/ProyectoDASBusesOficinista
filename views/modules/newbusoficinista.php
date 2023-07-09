@@ -52,21 +52,7 @@
           <option value="0">Inactivo</option>
         </select>
       </div>
-      <div class="mb-3">
-        <label for="frecuencia" class="form-label" style="font-weight:bold;">Frecuencia</label>
-        <div class="col-sm-8">
-          <div class="input-group">
-            <span class="form-control form-control-sm" style="background-color: #fff; border: none; height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;">
-              Asignar Frecuencia
-            </span>
-            <div class="input-group-append">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#frequencyModal">
-                <i>+</i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div>
         <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()" name="envio">Registrar</button>
         <button type="button" class="btn btn-danger"><a href="redireccionoficinista.php?action=buses">Cancelar</a></button>
@@ -74,40 +60,7 @@
     </form>
   </div>
 
-  <div class="modal fade" id="frequencyModal" tabindex="-1" aria-labelledby="frequencyModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="frequencyModalLabel">Agregar Frecuencia</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="myForm" method="POST">
-            <table id="frequencyTable" class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Origen</th>
-                  <th scope="col">Destino</th>
-                  <th scope="col">Costo</th>
-                  <th scope="col">Duración</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colspan="5">No se encontraron registros en la tabla</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Guardar</button>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

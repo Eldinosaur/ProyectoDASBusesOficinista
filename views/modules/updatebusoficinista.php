@@ -1,33 +1,59 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#newBus').submit(function(e) {
-      e.preventDefault(); // Prevent the default form submission
+    var firebaseConfig = {
+      apiKey: "AIzaSyAZa0vsgcykehIk-x1Fh_VLShy5oHesm94",
+      storageBucket: "gs://facturamovil-cd677.appspot.com"
+    };
 
-      // Retrieve form data
-      var formData = $(this).serialize();
+    firebase.initializeApp(firebaseConfig);
 
-      // Send the form data using AJAX
-      $.ajax({
-        type: 'POST',
-        url: "https://nilotic-quart.000webhostapp.com/agregarBus.php",
-        data: formData,
-        success: function(response) {
-          console.log(response);
-        },
-        error: function(xhr, status, error) {
-          // Handle the error case
-          console.log(xhr.responseText); // Example: Log the error response to the browser console
-        }
+    $(document).ready(function() {
+      $('#newBus').submit(function(e) {
+        e.preventDefault(); 
+
+        var imageFile = document.getElementById('fotografia').files[0];
+        var storageRef = firebase.storage().ref();
+        var timestamp = Date.now();
+        var imageName = timestamp + '-' + imageFile.name;
+        var imageRef = storageRef.child(imageName);
+        var formData = new FormData(this);
+
+        imageRef
+          .put(imageFile)
+          .then(function(snapshot) {
+            console.log('Imagen subida con éxito.');
+            return imageRef.getDownloadURL();
+          })
+          .then(function(url) {
+            console.log('URL de descarga:', url);
+            formData.append('fotografia', url);
+            $.ajax({
+              type: 'POST',
+              url: 'https://nilotic-quart.000webhostapp.com/agregarBus.php',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+                console.log(response);
+              },
+              error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+              }
+            });
+          })
+          .catch(function(error) {
+            console.log('Error al subir la imagen:', error);
+          });
       });
     });
-  });
-</script>
-<script>
-    function redirectToBuses(){
-    window.location.href = 'redireccionoficinista.php?action=buses';
-  }
-</script>
+
+
+    function redirectToBuses() {
+      setTimeout(function() {
+        window.location.href = 'redireccionoficinista.php?action=buses';
+      }, 4000); 
+    }
+  </script>
 
 <?php
 $id_bus = $_GET['id_bus'];

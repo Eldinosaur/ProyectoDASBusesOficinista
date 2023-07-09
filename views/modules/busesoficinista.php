@@ -4,12 +4,12 @@
         <img src="img/plus.png" class="icons">
     </a>
     <br>
-    <h5>Bienvenido a la página de la cooperativa
+    <!--<h5>Bienvenido a la página de la cooperativa
         <?php echo $_SESSION['id_coop']; ?>
     </h5>
     <h5>Bienvenido usuario
         <?php echo $_SESSION['id_usuario']; ?>
-    </h5>
+    </h5>-->
     <table class="table table-striped">
         <thead>
             <tr>
