@@ -8,7 +8,39 @@ $cantidad_asientos = $_GET['cantidad_asientos'];
 $fotografia = $_GET['fotografia'];
 $id_socio = $_GET['id_socio'];
 $estado = $_GET['estado'];
+
 ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#newBus').submit(function(e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Retrieve form data
+      var formData = $(this).serialize();
+
+      // Send the form data using AJAX
+      $.ajax({
+        type: 'POST',
+        url: "https://nilotic-quart.000webhostapp.com/agregarViajeDiario.php",
+        data: formData,
+        success: function(response) {
+          console.log(response);
+        },
+        error: function(xhr, status, error) {
+          // Handle the error case
+          console.log(xhr.responseText); // Example: Log the error response to the browser console
+        }
+      });
+    });
+  });
+</script>
+<script>
+    function redirectToBuses(){
+    window.location.href = 'redireccionoficinista.php?action=buses';
+  }
+</script>
+
 
 <head>
     <meta charset="UTF-8">
@@ -68,6 +100,27 @@ $estado = $_GET['estado'];
                 <div>
                     <h4>Datos del Viaje</h4>
                 </div>
+                <div class="mb-3">
+                    <label for="id_asignacion_pertenece" class="form-label" style="font-weight:bold;">Frecuencia</label>
+                    <select class="form-control" name="id_asignacion_pertenece" id="id_asignacion_pertenece">
+                    <?php 
+                    $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuenciaCooperativa.php?id_cooperativa_pertenece='.$_SESSION['id_coop'];
+                    $ch = curl_init($url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $json = curl_exec($ch);
+                    if ($json != null) {
+                        $obj = json_decode($json);
+                        $val = json_decode(json_encode($obj), true);
+
+                        for ($i = 0; $i < sizeof($val); $i++) {
+                            $id_frecuencia_asignada=$val[$i]['id_frecuencia'];
+                            $origen_frecuencia =$val[$i]['origen_frecuencia'];
+                            $destino_frecuencia = $val[$i]['destino_frecuencia'];                    
+                            ?>
+                        <option value="<?php echo $id_frecuencia_asignada;?>"><?php echo 'Origen: '.$origen_frecuencia.' Destino: '.$destino_frecuencia ?></option>
+                        <?php }}?>
+                    </select>
+                </div>
                 <input type="text" class="form-control" name="id_bus_viaje" id="id_bus_viaje"
                     value="<?php echo $id_bus ?>" hidden>
                 <div class="mb-3">
@@ -86,10 +139,7 @@ $estado = $_GET['estado'];
         </div>
 
         <div>
-            <button type="submit" class="btn btn-primary" id="envio" name="envio">
-                <a href="redireccionoficinista.php?action=buses">Registrar
-                </a>
-            </button>
+        <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()" name="envio">Registrar</button>
             <button type="button" class="btn btn-danger"><a
                     href="redireccionoficinista.php?action=buses">Cancelar</a></button>
         </div>
