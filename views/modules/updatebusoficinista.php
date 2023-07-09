@@ -88,7 +88,8 @@ $estado = $_GET['estado'];
             </div>
             <div class="mb-3">
         <label for="fotografia" class="form-label" style="font-weight:bold;">Fotografia</label>
-        <input type="text" class="form-control" name="fotografia" id="fotografia" value="<?php echo $fotografia ?>" placeholder="Fotografia" required>
+        <img src="<?php echo $fotografia ?>" alt="Fotografía Bus" class="fotobus">
+        <input type="file" class="form-control" name="fotografia" id="fotografia" value="<?php echo $fotografia ?>"required>
       </div>
             <div class="mb-3">
                 <label for="estado" class="form-label" style="font-weight:bold;">Estado</label>
