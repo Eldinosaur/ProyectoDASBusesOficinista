@@ -13,6 +13,7 @@ Asegúrate de tener instalado lo siguiente:
 
 - [Servidor web](https://www.apachefriends.org/download.html)
   Para este proyecto se utilizó el servidor Apache proporcionado por la herramienta XAMPP [🔗](https://www.apachefriends.org/download.html) pero también puedes utilizar otros servidores similares de tu preferencia.
+
   💡 Recuerda que este proyecto utiliza PHP, JavaScript y AJAX. Verifica la compatibilidad con la herramienta que elijas.
 - [Repositorio - Backend](https://github.com/YadiraAllauca/ServiciosProyectoDAS)
   Los enlaces a los servicios y la base de datos que se encuentran implicados en el código de este proyecto están alojados en un HostingWeb. Pero puedes verificar la estructura en el repositorio de backend. Te recomendamos revisar la documentación [🔗](https://github.com/YadiraAllauca/ServiciosProyectoDAS)
@@ -28,8 +29,9 @@ git clone https://github.com/Eldinosaur/ProyectoDASBusesOficinista.git
 2. Verificación del funcionamiento
    Cuando levantes Apache en XAMPP podrás acceder ya a la app con localhost.
    <img src="https://cdn.glitch.global/1d3dd682-c1e7-4386-94b7-857b9d3c741b/336d7ee0-3fe8-445c-9511-4c3b6f6db328.jpg?v=1688944036407" width="400">
+
    ⚠️El proyecto incluye la carpeta de Bootstrap con los estilos y componentes necesarios. No es necesario instalar nada adicional.
-3. El almacenamiento de fotografías se está efectuando con conexión a un proyecto personal en Firebase<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png" alt="Logo de Firebase" width="20">
+4. El almacenamiento de fotografías se está efectuando con conexión a un proyecto personal en Firebase<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png" alt="Logo de Firebase" width="20">
    Si deseas manejar tu propio almacenamiento en esta plataforma, puedes revisar la documentación: [🔗](https://firebase.google.com/docs/storage?hl=es-419)
 
 ## 💻 Uso
