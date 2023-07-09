@@ -79,7 +79,7 @@ $estado = $_GET['estado'];
                 </thead>
                 <tbody>
                 <?php
-                $url = 'https://nilotic-quart.000webhostapp.com/listarViajesDiarios.php';
+                $url = 'https://nilotic-quart.000webhostapp.com/listarViajesBus.php?id_bus='.$id_bus;
                 $ch = curl_init($url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 $json = curl_exec($ch);
@@ -95,9 +95,7 @@ $estado = $_GET['estado'];
                         $hora_salida_viaje = $val[$i]['hora_salida_viaje'];
                         $hora_llegada_viaje = $val[$i]['hora_llegada_viaje'];
                         $origen = $val[$i]['origen'];
-                        $destino = $val[$i]['destino'];
-                        if($id_bus_viaje == $id_bus){
-                        ?>
+                        $destino = $val[$i]['destino'];?>
                     <tr>
                         <td>
                             <?php echo $fecha_viaje; ?>
@@ -114,7 +112,7 @@ $estado = $_GET['estado'];
                         <td>
                             <?php echo $destino; ?>
                         </td>
-                        <?php }}}?>
+                        <?php }}?>
                 </tbody>
             </table>
         </div>
