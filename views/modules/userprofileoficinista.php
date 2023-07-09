@@ -1,7 +1,16 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.2/dist/css/bootstrap.min.css">
 </head>
-
+<?php
+    $url = 'https://nilotic-quart.000webhostapp.com/obtenerDatosUsuarioGet.php?id_usuario=' . $_SESSION['id_usuario'];
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $json = curl_exec($ch);
+    if ($json != null) {
+        $obj = json_decode($json, true);
+        $nombre = $obj['nombre_usuario'];
+        $apellido = $obj['apellido_usuario'];
+    }?>
 <body>
     <div class="container">
         <div class="p-3">
@@ -21,7 +30,7 @@
             <div class="text-center mt-3">
                 <p class="fw-bold fs-4 mb-1">Nombres y Apellidos</p>
 
-                <p class="fs-5 text-secondary">Nombre y Apellido</p>
+                <p class="fs-5 text-secondary"><?php echo $nombre.' '.$apellido?></p>
             </div>
 
             <div class="border rounded p-3 d-flex flex-column mt-3">

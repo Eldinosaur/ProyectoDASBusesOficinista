@@ -2,14 +2,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("form").submit(function(event) {
-                event.preventDefault(); // Evitar que se envíe el formulario
+        <script>
+        $(document).ready(function () {
+            $("form").submit(function (event) {
+                e.preventDefault(); // Prevent the default form submission
 
-                // Mostrar ventana emergente con mensaje y icono
-                $('#successModal').modal('show');
-            });
-        });
+                // Retrieve form data
+                var formData = $(this).serialize();
+
+                // Send the form data using AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: "https://nilotic-quart.000webhostapp.com/editarClaveUsuario.php",
+                    data: formData,
+                    success: function (response) {
+                        console.log(response);
+                        $('#successModal').modal('show');
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle the error case
+                        console.log(xhr.responseText); // Example: Log the error response to the browser console
+                    }
+                
+                });
+            });});
+    </script>
     </script>
     <script>
         $(document).ready(function() {
@@ -44,12 +61,13 @@
             <h3 style="font-size: 20px; text-align: center;">
                 <span class="cooperative-info-title">CAMBIAR CONTRASEÑA</span>
             </h3>
-            <form style="max-width: 400px; margin: 0 auto;">
+            <form style="max-width: 400px; margin: 0 auto;" id="form">
+            <input type="text" id="id_usuario" value="<?php echo $_SESSION['id_usuario']?>"hidden>
                 <div class="row mb-3">
                     <label for="newPassword" class="col-sm-4 col-form-label">Nueva Contraseña:</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input type="password" class="form-control form-control-sm" id="newPassword" placeholder="Ingrese la nueva contraseña">
+                            <input type="password" class="form-control form-control-sm" id="clave_usuario" placeholder="Ingrese la nueva contraseña">
                             <button class="btn btn-outline-secondary" type="button" id="toggleNewPassword">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -71,7 +89,8 @@
                     <label for="currentPassword" class="col-sm-4 col-form-label">Contaseña Actual:</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input type="password" class="form-control form-control-sm" id="currentPassword" placeholder="Ingrese su contraseña actual">
+                            
+                            <input type="password" class="form-control form-control-sm" id="clave_usuario" placeholder="Ingrese su contraseña actual">
                             <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword">
                                 <i class="fas fa-eye"></i>
                             </button>
