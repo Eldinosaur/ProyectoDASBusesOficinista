@@ -2,7 +2,6 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Frecuencia N°</th>
                 <th scope="col">Origen</th>
                 <th scope="col">Destino</th>
                 <th scope="col">Tipo</th>
@@ -30,9 +29,6 @@
                     $estado_frecuencia = $val[$i]['estado_frecuencia'];
                     ?>
                     <tr>
-                        <td>
-                            <?php echo $id_frecuencia; ?>
-                        </td>
                         <td>
                             <?php echo $origen_frcuencia; ?>
                         </td>

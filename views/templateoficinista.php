@@ -24,7 +24,7 @@ session_start();
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark;">
             <div class="container-fluid" style="display:flex;">
-            <a class="navbar-brand" title="Inicio" href="logout.php">
+            <a class="navbar-brand" title="Inicio" href="redireccionoficinista.php">
                     <img src="img/safey.jpg" class="avatar"> </a>
                     <ul class="navbar-nav">
                     <li class="nav-item"></li>
