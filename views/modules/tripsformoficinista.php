@@ -115,11 +115,13 @@ $estado = $_GET['estado'];
                             for ($i = 0; $i < sizeof($val); $i++) {
                                 $id_frecuencia_asignada = $val[$i]['id_frecuencia'];
                                 $origen_frecuencia = $val[$i]['origen_frecuencia'];
+                                $origen = $val[$i]['origen'];
                                 $destino_frecuencia = $val[$i]['destino_frecuencia'];
+                                $destino = $val[$i]['destino'];
                                 $estado_frecuencia = $val[$i]['estado_frecuencia'];
                                 if($estado_frecuencia == 1){
                                 ?>
-                                <option value="<?php echo $id_frecuencia_asignada; ?>"><?php echo 'Origen: ' . $origen_frecuencia . ' Destino: ' . $destino_frecuencia ?></option>
+                                <option value="<?php echo $id_frecuencia_asignada; ?>"><?php echo 'Origen: ' . $origen . '- Destino: ' . $destino ?></option>
                             <?php }else{
                                 echo "<option> No Existen frecuencias habilitadas</option>";
                             }
