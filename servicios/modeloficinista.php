@@ -18,7 +18,8 @@ class EnlacesPaginas
             $enlacesModel == "trips" ||
             $enlacesModel == "tripsform"||
             $enlacesModel == "socios" ||
-            $enlacesModel == "newsocio"){
+            $enlacesModel == "newsocio" ||
+            $enlacesModel == "seats"){
                 $module = "views/modules/".$enlacesModel."oficinista.php";
             }else{
             $module = "views/modules/home.php";

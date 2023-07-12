@@ -18,7 +18,7 @@
                 <th scope="col">Carroceria</th>
                 <th scope="col">Cant. Asientos</th>
                 <th scope="col">Estado</th>
-                <th colspan="3">Acciones</th>
+                <th colspan="4"><center>Acciones</center></th>
 
             </tr>
         </thead>
@@ -76,8 +76,24 @@
                             <input type="text" name="fotografia" value="'.$fotografia.'" hidden>
                             <input type="text" name="id_socio" value="'.$id_socio.'" hidden>
                             <input type="text" name="estado" value="'.$estado.'" hidden>
-                                <button type="submit" class="btn">                               
+                                <button type="submit" class="btn" title="Editar">                               
                             <img src="img/edit.png" class="icons">
+                        </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="redireccionoficinista.php?action=seats" method="post">
+                            <input type="text" name="id_bus" value="'.$id_bus.'" hidden>
+                            <input type="text" name="numero_bus" value="'.$numero_bus.'" hidden>
+                            <input type="text" name="placa_bus" value="'.$placa_bus.'" hidden>
+                            <input type="text" name="chasis_bus" value="'.$chasis_bus.'" hidden>
+                            <input type="text" name="carroceria_bus" value="'.$carroceria_bus.'" hidden>
+                            <input type="text" name="cantidad_asientos" value="'.$cantidad_asientos.'" hidden>
+                            <input type="text" name="fotografia" value="'.$fotografia.'" hidden>
+                            <input type="text" name="id_socio" value="'.$id_socio.'" hidden>
+                            <input type="text" name="estado" value="'.$estado.'" hidden>
+                                <button type="submit" class="btn" title="Asientos">                               
+                            <img src="img/seats.png" class="icons">
                         </button>
                             </form>
                         </td>';

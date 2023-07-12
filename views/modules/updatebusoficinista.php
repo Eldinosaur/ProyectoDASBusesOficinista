@@ -23,13 +23,6 @@ $estado = $_POST['estado'];
 
 ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/styles.css">
-
 <body class="bodyBack">
   <div class="divFormulario">
     <form id="newBus" method="POST">
@@ -92,9 +85,11 @@ $estado = $_POST['estado'];
       </div>
       <div class="mb-3">
         <label for="fotografia" class="form-label" style="font-weight:bold;">Fotografia</label>
-        <img src="<?php echo $fotografia ?>" alt="Fotografía Bus" class="fotobus">
         <input type="file" class="form-control" name="fotografia" id="fotografia" value="<?php echo $fotografia ?>">
       </div>
+      <div class="mb-3">
+        <img src="<?php echo $fotografia ?>" alt="Fotografía Bus" style="height:200px;">
+        </div>
       <div class="mb-3">
         <label for="estado" class="form-label" style="font-weight:bold;">Estado</label>
         <select class="form-control" name="estado" id="estado">

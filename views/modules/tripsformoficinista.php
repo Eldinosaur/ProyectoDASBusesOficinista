@@ -26,10 +26,14 @@ $estado = $_GET['estado'];
                 data: formData,
                 success: function (response) {
                     console.log(response);
+                    alert("Se registró con Éxito el Viaje");
+                    location.href = 'redireccionoficinista.php?action=buses';
                 },
                 error: function (xhr, status, error) {
                     // Handle the error case
                     console.log(xhr.responseText); // Example: Log the error response to the browser console
+                    alert("No se registró el Viaje");
+                    location.href = 'redireccionoficinista.php?action=buses';
                 }
             });
         });
@@ -147,10 +151,9 @@ $estado = $_GET['estado'];
         </div>
 
         <div>
-            <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()"
+            <button type="submit" class="btn btn-primary" id="envio" 
                 name="envio">Registrar</button>
-            <button type="button" class="btn btn-danger"><a
-                    href="redireccionoficinista.php?action=buses">Cancelar</a></button>
+            <button type="button" class="btn btn-danger" onclick="redirectToBuses()">Cancelar</button>
         </div>
         </form>
     </div>
