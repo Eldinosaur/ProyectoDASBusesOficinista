@@ -111,7 +111,7 @@
     </script>
     <script>
         function redirectToPerfil() {
-            window.location.href = 'redireccionadmin.php?action=perfilusuario';
+            window.location.href = 'redireccionoficinista.php?action=userprofile';
         }
     </script>
 </head>
