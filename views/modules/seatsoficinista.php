@@ -65,7 +65,6 @@ $estado = $_POST['estado'];
                 });
                 
                 n_estandar -=1;
-                alert(n_estandar);
             }
             for (var i = 0; i < n_vip; i++) {
                 $.ajax({
