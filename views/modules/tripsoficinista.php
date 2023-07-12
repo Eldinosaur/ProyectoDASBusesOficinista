@@ -1,13 +1,13 @@
 <?php
-$id_bus = $_GET['id_bus'];
-$numero_bus = $_GET['numero_bus'];
-$placa_bus = $_GET['placa_bus'];
-$chasis_bus = $_GET['chasis_bus'];
-$carroceria_bus = $_GET['carroceria_bus'];
-$cantidad_asientos = $_GET['cantidad_asientos'];
-$fotografia = $_GET['fotografia'];
-$id_socio = $_GET['id_socio'];
-$estado = $_GET['estado'];
+$id_bus = $_POST['id_bus'];
+$numero_bus = $_POST['numero_bus'];
+$placa_bus = $_POST['placa_bus'];
+$chasis_bus = $_POST['chasis_bus'];
+$carroceria_bus = $_POST['carroceria_bus'];
+$cantidad_asientos = $_POST['cantidad_asientos'];
+$fotografia = $_POST['fotografia'];
+$id_socio = $_POST['id_socio'];
+$estado = $_POST['estado'];
 ?>
 
 <head>
@@ -88,6 +88,7 @@ $estado = $_GET['estado'];
                     $val = json_decode(json_encode($obj), true);
 
                     for ($i = 0; $i < sizeof($val); $i++) {
+                        if (isset($val[$i]['id_viaje']) != null) {
                         $id_viaje = $val[$i]['id_viaje'];
                         $id_asignacion_pertenece =$val[$i]['id_asignacion_pertenece'];
                         $id_bus_viaje=$val[$i]['id_bus_viaje'];
@@ -112,7 +113,8 @@ $estado = $_GET['estado'];
                         <td>
                             <?php echo $destino; ?>
                         </td>
-                        <?php }}?>
+                        
+                        <?php }}}?>
                 </tbody>
             </table>
         </div>

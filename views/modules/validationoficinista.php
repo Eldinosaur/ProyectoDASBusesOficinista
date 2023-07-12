@@ -61,7 +61,7 @@
                                 ?>
                             </td>
                             <?php
-                            if ($estado_venta == 0) {
+                            //if ($estado_venta == 0) {
                                 echo '<td>
                             <form action="redireccionoficinista.php?action=validationform" method="post">
                             <input type="text" name="id_venta" value="' . $id_venta . '" hidden>
@@ -78,9 +78,9 @@
                         </button>
                             </form>
                         </td>';
-                            } else {
+                            /*} else {
                                 echo "<td></td>";
-                            }
+                            }*/
                             ?>
 
                         </tr>

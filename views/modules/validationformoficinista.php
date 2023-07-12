@@ -25,10 +25,14 @@ $fecha_viaje = $_POST['fecha_viaje'];
                 data: formData,
                 success: function (response) {
                     console.log(response);
+                    alert("Se Validó la Venta con Exito");
+                    location.href = 'redireccionoficinista.php?action=validation';
                 },
                 error: function (xhr, status, error) {
                     // Handle the error case
                     console.log(xhr.responseText); // Example: Log the error response to the browser console
+                    alert("No se Pudo Validar la Venta");
+                    location.href = 'redireccionoficinista.php?action=validation';
                 }
             });
         });
@@ -96,13 +100,16 @@ $fecha_viaje = $_POST['fecha_viaje'];
                     </tbody>
                 </table>
                 <h5>Comprobante</h5>
-                <img src="<?php if(filter_var($comprobante_venta, FILTER_VALIDATE_URL)){echo $comprobante_venta;}?>" alt="No Existe Comprobante Registrado" style="height:250px;">
+                <img src="<?php if (filter_var($comprobante_venta, FILTER_VALIDATE_URL)) {
+                    echo $comprobante_venta;
+                } ?>"
+                    alt="No Existe Comprobante Registrado" style="height:250px;">
             </div>
-<input type="text" name="id_venta" id="id_venta" value="<?php echo $id_venta?>" hidden>
+            <input type="text" name="id_venta" id="id_venta" value="<?php echo $id_venta ?>" hidden>
             <div class="mb-3">
-                    <label for="estado_venta" class="form-label" style="font-weight:bold;">Estado</label>
-                    <select class="form-control" name="estado_venta" id="estado_venta">
-                        <option value="1" <?php if ($estado_venta == 1)
+                <label for="estado_venta" class="form-label" style="font-weight:bold;">Estado</label>
+                <select class="form-control" name="estado_venta" id="estado_venta">
+                    <option value="1" <?php if ($estado_venta == 1)
                         echo 'selected' ?>>Validado
                         </option>
                         <option value="0" <?php if ($estado_venta == 0)
@@ -114,12 +121,12 @@ $fecha_viaje = $_POST['fecha_viaje'];
 
 
 
-            <div>
-            <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()"
+                <div>
+                    <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()"
                         name="envio">Registrar</button>
                     <button type="button" class="btn btn-danger"><a
                             href="redireccionoficinista.php?action=validation">Cancelar</a></button>
-            </div>
-        </form>
-    </div>
-</body>
+                </div>
+            </form>
+        </div>
+    </body>

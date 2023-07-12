@@ -79,6 +79,9 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link active; navTemplate" title="Validaciones" href="redireccionoficinista.php?action=validation">Validacion Ventas Online</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active; navTemplate" title="Socios" href="redireccionoficinista.php?action=socios">Socios</a>
+                    </li>
                 </ul>
                 
 
