@@ -24,10 +24,14 @@ $costo = $_GET['costo'];
         data: formData,
         success: function(response) {
           console.log(response);
+          alert("Venta Registrada con Exito");
+          location.href = 'redireccionoficinista.php?action=sales';
         },
         error: function(xhr, status, error) {
           // Handle the error case
           console.log(xhr.responseText); // Example: Log the error response to the browser console
+          alert("No se Registro la venta");
+          location.href = 'redireccionoficinista.php?action=sales';
         }
       });
     });
@@ -87,9 +91,8 @@ $costo = $_GET['costo'];
                 <input type="text" class="form-control" name="total_venta" value="<?php echo $costo?>" id="total_venta" hidden>
             </div>
             
-            <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToSales()" name="envio">Registrar</button>
-                    <button type="button" class="btn btn-danger"><a
-                            href="redireccionoficinista.php?action=sales">Cancelar</a></button>
+            <button type="submit" class="btn btn-primary" id="envio"  name="envio">Registrar</button>
+                    <button type="button" class="btn btn-danger" onclick="redirectToSales()">Cancelar</button>
             </div>
         </form>
     </div>
