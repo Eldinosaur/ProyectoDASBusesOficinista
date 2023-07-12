@@ -21,8 +21,10 @@
 
                 for ($i = 0; $i < sizeof($val); $i++) {
                     $id_frecuencia = $val[$i]['id_frecuencia'];
-                    $origen_frcuencia = $val[$i]['origen'];
-                    $destino_frecuencia = $val[$i]['destino'];
+                    $origen_frecuencia = $val[$i]['origen_frecuencia'];
+                    $origen = $val[$i]['origen'];
+                    $destino_frecuencia= $val[$i]['destino_frecuencia'];
+                    $destino= $val[$i]['destino'];
                     $duracion_frecuencia = $val[$i]['duracion_frecuencia'];
                     $tipo_frecuencia = $val[$i]['tipo_frecuencia'];
                     $costo_frecuencia = $val[$i]['costo_frecuencia'];
@@ -30,10 +32,10 @@
                     ?>
                     <tr>
                         <td>
-                            <?php echo $origen_frcuencia; ?>
+                            <?php echo $origen; ?>
                         </td>
                         <td>
-                            <?php echo $destino_frecuencia; ?>
+                            <?php echo $destino; ?>
                         </td>
                         <td>
                         <?php if ($tipo_frecuencia == 1) {
@@ -53,6 +55,20 @@
                                 href="redireccionoficinista.php?action=updatefrequency&id_frecuencia=<?php echo $id_frecuencia;?>&origen_frecuencia=<?php echo $origen_frcuencia;?>&destino_frecuencia=<?php echo $destino_frecuencia?>&duracion_frecuencia=<?php echo $duracion_frecuencia?>&tipo_frecuencia=<?php echo $tipo_frecuencia?>&costo_frecuencia=<?php echo $costo_frecuencia?>&estado_frecuencia=<?php echo $estado_frecuencia?>">
                                 <img src="img/edit.png" class="icons">
                             </a></td>
+                            <td>
+                            <?php echo '<form action="redireccionoficinista.php?action=parada" method="post">
+                                <input type="text" name="duracion_frecuencia" value="'.$duracion_frecuencia.'" hidden>
+                                <input type="text" name="costo" value="'.$costo_frecuencia.'" hidden>
+                                <input type="text" name="origen" value="'.$origen.'" hidden>
+                                <input type="text" name="destino" value="'.$destino.'" hidden>
+                                <input type="text" name="origen_parada" value="'.$origen_frecuencia.'" hidden>
+                                <input type="text" name="destino_parada" value="'.$destino_frecuencia.'" hidden>
+                                <input type="text" name="id_frecuencia" value="'.$id_frecuencia.'" hidden>
+                                <button type="submit" class="btn" title="Paradas">                               
+                                <img src="img/plus.png" class="icons">
+                            </button>
+                                </form>'?>
+                        </td>
                     </tr>
                     <?php
                 }

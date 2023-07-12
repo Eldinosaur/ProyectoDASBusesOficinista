@@ -34,7 +34,7 @@
       </div>
       <div class="mb-3">
         <label for="cantidad_asientos" class="form-label" style="font-weight:bold;">Numero de asientos</label>
-        <input type="number" min="30" class="form-control" value="30" name="cantidad_asientos" id="cantidad_asientos" required>
+        <input type="number" min="30" max="40" class="form-control" value="30" name="cantidad_asientos" id="cantidad_asientos" required>
       </div>
       <div class="mb-3">
       <label for="id_socio" class="form-label" style="font-weight:bold;">Socio</label>

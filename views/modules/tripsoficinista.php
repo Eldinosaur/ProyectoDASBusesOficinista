@@ -113,20 +113,7 @@ $estado = $_POST['estado'];
                         <td>
                             <?php echo $destino; ?>
                         </td>
-                        <td>
-                            <!--<input type="text" name="origen_parada" value="'.$origen_parada.'" hidden>
-                                <input type="text" name="destino_parada" value="'.$destino_parada.'" hidden>-->
-                            <?php echo '<form action="redireccionoficinista.php?action=parada" method="post">
-                                <input type="text" name="fecha_viaje" value="'.$fecha_viaje.'" hidden>
-                                <input type="text" name="hora_salida_viaje" value="'.$hora_salida_viaje.'" hidden>
-                                <input type="text" name="hora_llegada_viaje" value="'.$hora_llegada_viaje.'" hidden>
-                                <input type="text" name="origen" value="'.$origen.'" hidden>
-                                <input type="text" name="destino" value="'.$destino.'" hidden>
-                                <button type="submit" class="btn" title="Asientos">                               
-                                <img src="img/plus.png" class="icons">
-                            </button>
-                                </form>'?>
-                        </td>
+                        
                         <?php }}}?>
                 </tbody>
             </table>

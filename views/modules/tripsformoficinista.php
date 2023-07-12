@@ -34,9 +34,6 @@ $estado = $_POST['estado'];
                 hora_salida_viaje: hora_salida,
                 hora_llegada_viaje: hora_llegada
             };
-            datosParada = {
-
-            };
             console.log(datosViaje);
             $.ajax({
                     type: 'POST',
@@ -154,6 +151,8 @@ $estado = $_POST['estado'];
                 <input type="time" class="form-control" name="hora_llegada" id="hora_llegada">
                 <div class="mb-3">
                 <button type="button" class="btn btn-primary" id="enviar" title="Asientos"> Asignar</button>
+                
+        <button type="button" class="btn btn-danger" onclick="redirectToBuses()">Cancelar</button>
             </form>
         </div>
     </div>

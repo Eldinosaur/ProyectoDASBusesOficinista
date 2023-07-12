@@ -155,7 +155,7 @@ $estado = $_POST['estado'];
 
             <div class="mb-3">
                 <label for="tipo_ejecutivo" class="form-label" style="font-weight:bold;">Ejecutivo</label>
-                <input type="text" class="form-control" name="tipo_ejecutivo" id="tipo_ejecutivo" required>
+                <input type="number" max="<?php echo $cantidad_asientos?>" class="form-control" name="tipo_ejecutivo" id="tipo_ejecutivo" required>
             </div>
             <div class="mb-3">
                 <label for="adicional_ejecutivo" class="form-label" style="font-weight:bold;">Costo Adicional
@@ -164,7 +164,7 @@ $estado = $_POST['estado'];
             </div>
             <div class="mb-3">
                 <label for="tipo_vip" class="form-label" style="font-weight:bold;">VIP</label>
-                <input type="text" class="form-control" name="tipo_vip" id="tipo_vip" required>
+                <input type="number" max="<?php echo $cantidad_asientos;?>" class="form-control" name="tipo_vip" id="tipo_vip" required>
             </div>
             <div class="mb-3">
                 <label for="adicional_vip" class="form-label" style="font-weight:bold;">Costo Adicional
