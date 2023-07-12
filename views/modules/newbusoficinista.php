@@ -75,8 +75,8 @@
       </div>
       
       <div>
-        <button type="submit" class="btn btn-primary" id="envio" onclick="redirectToBuses()" name="envio">Registrar</button>
-        <button type="button" class="btn btn-danger"><a href="redireccionoficinista.php?action=buses">Cancelar</a></button>
+        <button type="submit" class="btn btn-primary" id="envio"  name="envio">Registrar</button>
+        <button type="button" class="btn btn-danger" onclick="redirectToBuses()">Cancelar</button>
       </div>
     </form>
   </div>
@@ -136,6 +136,8 @@
               contentType: false,
               success: function(response) {
                 console.log(response);
+                alert("Se Guardaron con Éxito los Datos del Bus");
+                location.href = 'redireccionoficinista.php?action=buses';
               },
               error: function(xhr, status, error) {
                 console.log(xhr.responseText);
@@ -144,15 +146,15 @@
           })
           .catch(function(error) {
             console.log('Error al subir la imagen:', error);
+            alert("No se Guardaron los Datos del Bus");
+                location.href = 'redireccionoficinista.php?action=buses';
           });
       });
     });
 
 
     function redirectToBuses() {
-      setTimeout(function() {
         window.location.href = 'redireccionoficinista.php?action=buses';
-      }, 4000); 
     }
   </script>
 </body>
