@@ -16,7 +16,9 @@ class EnlacesPaginas
             $enlacesModel == "updatebus" ||
             $enlacesModel == "updatefrequency" ||
             $enlacesModel == "trips" ||
-            $enlacesModel == "tripsform"){
+            $enlacesModel == "tripsform"||
+            $enlacesModel == "socios" ||
+            $enlacesModel == "newsocio"){
                 $module = "views/modules/".$enlacesModel."oficinista.php";
             }else{
             $module = "views/modules/home.php";
