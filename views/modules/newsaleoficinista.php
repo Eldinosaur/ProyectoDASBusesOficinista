@@ -1,27 +1,39 @@
 <?php
-$id_viaje_pertenece = $_GET['id_viaje_pertenece'];
-$id_parada_pertenece = $_GET['id_parada_pertenece'];
-$fecha_viaje = $_GET['fecha_viaje'];
-$origen = $_GET['origen'];
-$destino = $_GET['destino'];
-$hora_salida = $_GET['hora_salida'];
-$hora_llegada = $_GET['hora_llegada'];
-$costo = $_GET['costo'];
+$id_viaje_pertenece = $_POST['id_viaje_pertenece'];
+$id_parada_pertenece = $_POST['id_parada_pertenece'];
+$fecha_viaje = $_POST['fecha_viaje'];
+$origen = $_POST['origen'];
+$destino = $_POST['destino'];
+$hora_salida = $_POST['hora_salida'];
+$hora_llegada = $_POST['hora_llegada'];
+$costo = $_POST['costo'];
 ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
     $('#newSale').submit(function(e) {
       e.preventDefault(); // Prevent the default form submission
-
-      // Retrieve form data
-      var formData = $(this).serialize();
-
-      // Send the form data using AJAX
+      var id_comprador = $("#id_comprador").val();
+      var id_viaje_pertenece = $("#id_viaje_pertenece").val();
+      var id_parada_pertenece = $("#id_parada_pertenece").val();
+      var fecha_venta = $("#fecha_venta").val();
+      var id_forma_pago = $("#id_forma_pago").val();
+      var total_venta = $("#total_venta").val();
+      
+      datosVenta = {
+        id_comprador:id_comprador,
+        id_viaje_pertenece:id_viaje_pertenece,
+        id_parada_pertenece:id_parada_pertenece,
+        fecha_venta:fecha_venta,
+        id_forma_pago:id_forma_pago,
+        total_venta:total_venta
+      };
+      console.log(datosVenta);
       $.ajax({
         type: 'POST',
         url: "https://nilotic-quart.000webhostapp.com/generarVenta.php",
-        data: formData,
+        data: datosVenta,
+        
         success: function(response) {
           console.log(response);
           alert("Venta Registrada con Exito");
@@ -71,10 +83,9 @@ $costo = $_GET['costo'];
             <div class="mb-3">
                 <label for="frecuencia" class="form-label" style="font-weight:bold;">Comprador</label>
                 <p>Consumidor Final</p>
-                <input type="text" id="id_comprador" value="99999" hidden>
+                <input type="text" id="id_comprador" value="1" hidden>
                 <input type="text" id="id_viaje_pertenece" value="<?php echo $id_viaje_pertenece?>" hidden>
                 <input type="text" id="id_parada_pertenece" value="<?php echo $id_parada_pertenece?>" hidden>
-                <input type="text" id="estado_venta" value="1" hidden>
             </div>
             <div class="mb-3">
                 <label for="fecha_venta" class="form-label" style="font-weight:bold;">Fecha de Venta</label>

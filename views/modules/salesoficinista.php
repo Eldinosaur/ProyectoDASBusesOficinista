@@ -56,10 +56,24 @@
                             <td>
                                 <?php echo $hora_llegada_viaje; ?>
                             </td>
-                            <td><a class="nav-link active; navTemplate" title="Vender"
-                                href="redireccionoficinista.php?action=newsale&hora_llegada=<?php echo $hora_llegada_viaje?>&hora_salida=<?php echo $hora_salida_viaje?>&fecha_viaje=<?php echo $fecha_viaje?>&destino=<?php echo $destino?>&origen=<?php echo $origen;?>&id_viaje_pertenece=<?php echo $id_viaje?>&id_parada_pertenece=<?php echo $id_parada?>&costo=<?php echo $costo ?>">                                
+                            <td>
+                                <?php
+                                echo '<td>
+                                <form action="redireccionoficinista.php?action=newsale" method="post">
+                                <input type="text" name="id_viaje_pertenece" value="'.$id_viaje.'" hidden>
+                                <input type="text" name="id_parada_pertenece" value="'.$id_parada.'" hidden>
+                                <input type="text" name="fecha_viaje" value="'.$fecha_viaje.'" hidden>
+                                <input type="text" name="origen" value="'.$origen.'" hidden>
+                                <input type="text" name="destino" value="'.$destino.'" hidden>
+                                <input type="text" name="hora_salida" value="'.$hora_salida_viaje.'" hidden>
+                                <input type="text" name="hora_llegada" value="'.$hora_llegada_viaje.'" hidden>
+                                <input type="text" name="costo" value="'.$costo.'" hidden>
+                                    <button type="submit" class="btn" title="Asientos">                               
                                 <img src="img/sale.png" class="icons">
-                            </a></td>
+                            </button>
+                                </form>
+                            </td>';?>
+                            </td>
 
                         </tr>
                         <?php }else{

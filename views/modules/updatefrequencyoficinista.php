@@ -37,7 +37,7 @@ $estado_frecuencia = $_GET['estado_frecuencia'];
         });
     });
     function redirectToBuses() {
-        window.location.href = 'redireccionoficinista.php?action=buses';
+        window.location.href = 'redireccionoficinista.php?action=frequencies';
     }
 </script>
 

@@ -31,9 +31,8 @@
             if ($json != null) {
                 $obj = json_decode($json);
                 $val = json_decode(json_encode($obj), true);
-                if (is_array($val)) {
-
                     for ($i = 0; $i < sizeof($val); $i++) {
+                        if (isset($val[$i]['id_bus']) != null) {
                         $id_bus = $val[$i]['id_bus'];
                         $numero_bus = $val[$i]['numero_bus'];
                         $placa_bus = $val[$i]['placa_bus'];
@@ -99,20 +98,37 @@
                         </td>';
                             if ($estado == 1) {
                                 echo '
-                        <td>                       
-                            <a class="nav-link active; navTemplate"
-                             href="redireccionoficinista.php?action=tripsform&id_bus=' . $id_bus . '&numero_bus=' . $numero_bus . '&placa_bus=' . $placa_bus . '&chasis_bus=' . $chasis_bus . '&carroceria_bus=' . $carroceria_bus . '&cantidad_asientos=' . $cantidad_asientos . '&fotografia=' . $fotografia . '&id_socio=' . $id_socio . '&estado=' . $estado . '" 
-                             title="Asignar viaje">
-                            <img src="img/plus.png" class="icons">
-                            </a>                        
+                                <td>
+                                <form action="redireccionoficinista.php?action=tripsform" method="post">
+                                <input type="text" name="id_bus" value="'.$id_bus.'" hidden>
+                                <input type="text" name="numero_bus" value="'.$numero_bus.'" hidden>
+                                <input type="text" name="placa_bus" value="'.$placa_bus.'" hidden>
+                                <input type="text" name="chasis_bus" value="'.$chasis_bus.'" hidden>
+                                <input type="text" name="carroceria_bus" value="'.$carroceria_bus.'" hidden>
+                                <input type="text" name="cantidad_asientos" value="'.$cantidad_asientos.'" hidden>
+                                <input type="text" name="fotografia" value="'.$fotografia.'" hidden>
+                                <input type="text" name="id_socio" value="'.$id_socio.'" hidden>
+                                <input type="text" name="estado" value="'.$estado.'" hidden>
+                                    <button type="submit" class="btn" title="Asientos">                               
+                                <img src="img/plus.png" class="icons">
+                            </button>
+                                </form>
+                                <td>
+                                <form action="redireccionoficinista.php?action=trips" method="post">
+                                <input type="text" name="id_bus" value="'.$id_bus.'" hidden>
+                                <input type="text" name="numero_bus" value="'.$numero_bus.'" hidden>
+                                <input type="text" name="placa_bus" value="'.$placa_bus.'" hidden>
+                                <input type="text" name="chasis_bus" value="'.$chasis_bus.'" hidden>
+                                <input type="text" name="carroceria_bus" value="'.$carroceria_bus.'" hidden>
+                                <input type="text" name="cantidad_asientos" value="'.$cantidad_asientos.'" hidden>
+                                <input type="text" name="fotografia" value="'.$fotografia.'" hidden>
+                                <input type="text" name="id_socio" value="'.$id_socio.'" hidden>
+                                <input type="text" name="estado" value="'.$estado.'" hidden>
+                                    <button type="submit" class="btn" title="Asientos">                               
+                                <img src="img/details.png" class="icons">
+                            </button>
+                                </form>
                             </td>
-                        <td>
-                            <a class="nav-link active; navTemplate"
-                             href="redireccionoficinista.php?action=trips&id_bus=' . $id_bus . '&numero_bus=' . $numero_bus . '&placa_bus=' . $placa_bus . '&chasis_bus=' . $chasis_bus . '&carroceria_bus=' . $carroceria_bus . '&cantidad_asientos=' . $cantidad_asientos . '&fotografia=' . $fotografia . '&id_socio=' . $id_socio . '&estado=' . $estado . '"  
-                             title="Viajes Asignados">
-                            <img src="img/details.png" class="icons">
-                            </a>                        
-                        </td>
                         ';
                             } else {
                                 echo '<td></td><td></td>';
@@ -120,13 +136,6 @@
                         </tr>
                         <?php
                     }
-                }
-                else{
-                    ?>
-                    <tr>
-                        <?php echo $val['mensaje'];?>
-                    </tr>
-                    <?php
                 }
             } else {
                 ?>
